@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>setupTableVKb</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//键盘显示事件
+    [[[NSNotificationCenter defaultCenter]
+          rac_addObserverForName:UIKeyboardWillShowNotification
+          object:nil]
+     subscribeNext:^(NSNotification *notification) {
+        [self.tableView showKeyboardRowAtIndexPath:indexPathSelect
+                                      Notification:notification];
+    }];
+    //键盘隐藏事件
+    [[[NSNotificationCenter defaultCenter]
+          rac_addObserverForName:UIKeyboardWillHideNotification
+          object:nil]
+     subscribeNext:^(NSNotification *notification) {
+        [self.tableView hideKeyboardNotification:notification];
+    }];
+    //退出键盘
+    [self.tableView addGestureRecognizerHideKeyBoard];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5F16FFD5-A14F-4462-9073-A9038750EC84</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>设置tableView键盘</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

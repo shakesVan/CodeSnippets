@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_viewController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class &lt;#ViewController#&gt;: &lt;#UIViewController#&gt; {
+    
+    // MARK: - Data
+    fileprivate lazy var viewModel: &lt;#ViewModel#&gt; = {
+        let vm = &lt;#ViewModel#&gt;()
+        return vm
+    }()
+    // MARK: - Subviews
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUI()
+        bindRx()
+    }
+    
+    // MARK: - LayoutUI
+    private func setupUI() {
+        
+    }
+    
+    // MARK: - BindRx
+    private func bindRx() {
+        
+    }
+    
+    // MARK: - Events
+}
+
+// MARK: - Delegate
+extension &lt;#ViewController#&gt; {}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3672A139-10EA-4751-964A-C4696CC3009C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建ViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

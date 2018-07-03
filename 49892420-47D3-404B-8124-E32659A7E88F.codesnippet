@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_btutton_label</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> public lazy var &lt;#labelBtn#&gt;: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(&lt;#UIColor#&gt;, for: .normal)
+        button.setTitleColor(&lt;#UIColor#&gt;, for: .highlighted)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: &lt;#T##CGFloat#&gt;)
+        return button
+    }()</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>49892420-47D3-404B-8124-E32659A7E88F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快捷创建懒加载label Btn</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

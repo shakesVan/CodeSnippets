@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_view_class</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class &lt;#Cell#&gt;: &lt;#UIView#&gt; {
+// MARK: - Data
+var data: &lt;#Type#&gt; {
+didSet {
+    _ = isSetupUI
+}
+}
+
+// MARK: - Subviews
+private lazy var bgView: UIView = {
+    let view = UIView()
+    view.backgroundColor = UIColor.white
+    view.layer.cornerRadius = 5
+    return view
+}()
+
+private lazy var &lt;#label#&gt;: UILabel = {
+let label = UILabel()
+label.textColor = &lt;#UIColor#&gt;
+label.font = UIFont.systemFont(ofSize: &lt;#T##CGFloat#&gt;)
+return label
+}()
+
+// MARK: - LayoutUI
+private lazy var isSetupUI: Void = {
+    self.setupUI()
+    return
+}()
+
+private func setupUI() {
+    addSubview(bgView)
+    
+    bgView.snp.makeConstraints { (make) in
+        make.edges.equalToSuperview()
+    }
+}
+
+// MARK: - Events
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>941F9B46-4488-4C21-9B0B-C81B15EA5380</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建UIView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

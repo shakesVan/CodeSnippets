@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Request_rac </string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/***  &lt;#Description#&gt;*/
+    @weakify(self)
+    [[[Request_rac requestServer:&lt;#responseClass#&gt; withParam:&lt;#ParamData#&gt;]
+      deliverOn:RACScheduler.mainThreadScheduler]
+     subscribeNext:^(ResponseData *data) {
+         @strongify(self)
+         
+     }error:^(NSError *error) {
+         YDShowError(error.domain);
+     }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F253C28A-7F42-46ED-9BCE-520906DF85A7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Request_rac</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Request_rac  __网络请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
