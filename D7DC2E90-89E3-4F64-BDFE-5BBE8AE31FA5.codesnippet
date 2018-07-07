@@ -3,21 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>subscribe_onNext</string>
+	<string>subscribe_on</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>subscribe(onNext: { (&lt;#event#&gt;) in
-                print("subscribe onNext")
-            }).disposed(by: &lt;#disposeBag#&gt;)</string>
+	<string>subscribe { (event) in
+                guard let element = event.element else {
+                    return
+                }
+                &lt;#code#&gt;
+            }.disposed(by: &lt;#disposeBag#&gt;)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>BA012990-01BB-4AA8-BB23-3DD08012C58F</string>
+	<string>D7DC2E90-89E3-4F64-BDFE-5BBE8AE31FA5</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>订阅next事件</string>
+	<string>订阅事件</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
