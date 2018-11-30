@@ -9,32 +9,37 @@
 		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>class &lt;#ViewController#&gt;: &lt;#UIViewController#&gt; {
+	<string>import UIKit
+
+class &lt;#ViewController#&gt;: MQBaseViewController {
     
     // MARK: - Data
-    fileprivate lazy var viewModel: &lt;#ViewModel#&gt; = {
-        let vm = &lt;#ViewModel#&gt;()
-        return vm
-    }()
+    fileprivate lazy var viewModel = &lt;#ViewModel#&gt;()
     // MARK: - Subviews
     
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupUI()
-        bindRx()
-    }
+// MARK: - LifeCycle
+override func viewDidLoad() {
+    super.viewDidLoad()
     
-    // MARK: - LayoutUI
-    private func setupUI() {
-        
-    }
+    initViews()
+    layoutUI()
+    bindRx()
+}
+
+// MARK: - LayoutUI
+private func layoutUI() {
     
-    // MARK: - BindRx
-    private func bindRx() {
-        
-    }
+}
+
+// MARK: - BindRx
+private func bindRx() {
+    
+}
+
+// MARK: - initViews
+private func initViews() {
+    
+}
     
     // MARK: - Events
 }

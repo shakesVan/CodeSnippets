@@ -3,27 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>subscribe_all</string>
+	<string>q_guard_self</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>subscribe(onNext: { (&lt;#model#&gt;) in
-                &lt;#code#&gt;
-            }, onError: { (&lt;#Error#&gt;) in
-                &lt;#code#&gt;
-            }, onCompleted: {
-                &lt;#code#&gt;
-            }, onDisposed: {
-                &lt;#code#&gt;
-            }).disposed(by: &lt;#T##DisposeBag#&gt;)</string>
+	<string>guard let `self` = self else { return }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2E39E56A-2FAF-4E1F-891A-D2EE4EAC791B</string>
+	<string>B6C0325C-2585-456A-866F-10B263346F96</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>订阅所有事件</string>
+	<string>快速创建guard_self</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

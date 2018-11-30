@@ -3,27 +3,33 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>subscribe_all</string>
+	<string>q_service</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>subscribe(onNext: { (&lt;#model#&gt;) in
-                &lt;#code#&gt;
-            }, onError: { (&lt;#Error#&gt;) in
-                &lt;#code#&gt;
-            }, onCompleted: {
-                &lt;#code#&gt;
-            }, onDisposed: {
-                &lt;#code#&gt;
-            }).disposed(by: &lt;#T##DisposeBag#&gt;)</string>
+	<string>import &lt;#Server#&gt;
+import RxSwift
+
+struct &lt;#MQAppService#&gt; {
+    static let shared = &lt;#MQAppService#&gt;()
+    private init() {}
+    
+    fileprivate let client: &lt;#IAppServiceClient#&gt; = {
+        //生成一个到服务端的连接。
+        let client = &lt;#IAppServiceClient#&gt;(
+            address: &lt;#kHostAddress#&gt;,
+            secure: false)
+        return client
+    }()
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2E39E56A-2FAF-4E1F-891A-D2EE4EAC791B</string>
+	<string>075AEB1C-7984-4D6D-935A-EC087D05A96C</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>订阅所有事件</string>
+	<string>快速创建service</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

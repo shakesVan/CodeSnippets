@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>q_button_image</string>
+	<string>q_button_imageLabel</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> public lazy var &lt;#imageBtn#&gt;: UIButton = {
+	<string> public lazy var &lt;#button#&gt;: UIButton = {
         let button = UIButton()
         button.setTitle(&lt;#String#&gt;, for: .normal)
         button.setTitleColor(&lt;#UIColor#&gt;, for: .normal)
@@ -27,7 +27,7 @@
 	<key>IDECodeSnippetPlatformFamily</key>
 	<string>iphoneos</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>快捷创建懒加载imageBtn</string>
+	<string>快捷创建懒加载imageLabelBtn</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

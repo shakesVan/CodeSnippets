@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_request</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/// &lt;#Description#&gt;
+///
+/// - Returns: &lt;#return value description#&gt;
+func &lt;#requestName#&gt;()
+    -&gt; Observable&lt;&lt;#Response#&gt;&gt; {
+        return Observable.create({ observer in
+            var request = &lt;#Request#&gt;()
+            request.requestHeader = MQRequestHeader.shared.requestHeader()
+            let closure: (&lt;#Request#&gt;) throws
+                -&gt; &lt;#Response#&gt; = {
+                    try self.client.&lt;#requestName#&gt;($0)
+            }
+            return MQServiceTool.rx_invoke(
+                request: request,
+                closure: closure,
+                handler: {(response, error) in
+                    observer.exceptionHandler(
+                        response, response?.responseHeader,error)
+            })
+        })
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>47B3B271-DB1A-4539-8A20-F40C3688EAE4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

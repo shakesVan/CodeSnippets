@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>subscribe_all</string>
+	<string>q_mock</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>subscribe(onNext: { (&lt;#model#&gt;) in
-                &lt;#code#&gt;
-            }, onError: { (&lt;#Error#&gt;) in
-                &lt;#code#&gt;
-            }, onCompleted: {
-                &lt;#code#&gt;
-            }, onDisposed: {
-                &lt;#code#&gt;
-            }).disposed(by: &lt;#T##DisposeBag#&gt;)</string>
+	<string>
+extension &lt;#Type#&gt; {
+    // mock 数据
+    static func mock() -&gt; &lt;#Type#&gt; {
+        var info = &lt;#Type#&gt;()
+        
+        return info
+    }
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2E39E56A-2FAF-4E1F-891A-D2EE4EAC791B</string>
+	<string>1B09AEAE-608A-42C0-AB42-9331B813B990</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>订阅所有事件</string>
+	<string>快速创建mock数据</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

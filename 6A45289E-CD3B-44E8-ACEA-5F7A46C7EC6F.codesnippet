@@ -9,11 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    lazy var &lt;#imgV#&gt;: UIImageView = {
-        let imgV = UIImageView()
-        imgV.image = &lt;#UIImage#&gt;
-        return imgV
-    }()</string>
+	<string>private var &lt;#imgV#&gt;: UIImageView!</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>6A45289E-CD3B-44E8-ACEA-5F7A46C7EC6F</string>
 	<key>IDECodeSnippetLanguage</key>

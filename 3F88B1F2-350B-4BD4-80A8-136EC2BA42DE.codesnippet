@@ -3,27 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>subscribe_all</string>
+	<string>q_hideNavBar</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>subscribe(onNext: { (&lt;#model#&gt;) in
-                &lt;#code#&gt;
-            }, onError: { (&lt;#Error#&gt;) in
-                &lt;#code#&gt;
-            }, onCompleted: {
-                &lt;#code#&gt;
-            }, onDisposed: {
-                &lt;#code#&gt;
-            }).disposed(by: &lt;#T##DisposeBag#&gt;)</string>
+	<string>
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewWillDisappear(animated)
+    }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2E39E56A-2FAF-4E1F-891A-D2EE4EAC791B</string>
+	<string>3F88B1F2-350B-4BD4-80A8-136EC2BA42DE</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>订阅所有事件</string>
+	<string>hideNavBar</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

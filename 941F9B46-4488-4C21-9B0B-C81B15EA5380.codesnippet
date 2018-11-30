@@ -9,36 +9,21 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>class &lt;#Cell#&gt;: &lt;#UIView#&gt; {
+	<string>import SnapKit
+
+class &lt;#UIView#&gt;: UIView {
 // MARK: - Data
-var data: &lt;#Type#&gt; {
+var data = &lt;#Data#&gt; {
 didSet {
-    _ = isSetupUI
+    
 }
 }
 
 // MARK: - Subviews
-private lazy var bgView: UIView = {
-    let view = UIView()
-    view.backgroundColor = UIColor.white
-    view.layer.cornerRadius = 5
-    return view
-}()
-
-private lazy var &lt;#label#&gt;: UILabel = {
-let label = UILabel()
-label.textColor = &lt;#UIColor#&gt;
-label.font = UIFont.systemFont(ofSize: &lt;#T##CGFloat#&gt;)
-return label
-}()
+private var bgView: UIView!
 
 // MARK: - LayoutUI
-private lazy var isSetupUI: Void = {
-    self.setupUI()
-    return
-}()
-
-private func setupUI() {
+private func layoutUI() {
     addSubview(bgView)
     
     bgView.snp.makeConstraints { (make) in
@@ -46,8 +31,34 @@ private func setupUI() {
     }
 }
 
-// MARK: - Events
-}</string>
+// MARK: - LifeCycle
+override init(frame: CGRect) {
+    super.init(frame: frame)
+    commonInit()
+}
+
+required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    commonInit()
+}
+
+private func commonInit() {
+    initViews()
+    layoutUI()
+    bindRx()
+}
+
+// MARK: - bindRx
+private func bindRx() {
+    
+}
+
+// MARK: - initViews
+private func initViews() {
+    bgView = UIView()
+}
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>941F9B46-4488-4C21-9B0B-C81B15EA5380</string>
 	<key>IDECodeSnippetLanguage</key>

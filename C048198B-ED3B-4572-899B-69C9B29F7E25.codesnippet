@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_color_layer</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>   
+    //创建渐变色的涂层
+    func creatBgL(_ frame: CGRect) -&gt; CALayer {
+        
+        //Gradient 0 fill for Mask
+        let gradientLayer0 = CAGradientLayer()
+        gradientLayer0.cornerRadius = 5
+        gradientLayer0.frame = frame
+        let color1 = UIColor.hex("#3099F8")
+        let color2 = UIColor.hex("#4264F3")
+        gradientLayer0.colors = [
+            color1.cgColor,
+            color2.cgColor]
+        gradientLayer0.locations = [0, 1]
+        gradientLayer0.startPoint = CGPoint(x: 1, y: 0)
+        gradientLayer0.endPoint = CGPoint(x: 1, y: 1)
+        return gradientLayer0
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C048198B-ED3B-4572-899B-69C9B29F7E25</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>创建渐变图层</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

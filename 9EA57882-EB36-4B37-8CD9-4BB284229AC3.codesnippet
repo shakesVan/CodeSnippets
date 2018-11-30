@@ -9,12 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    private lazy var &lt;#label#&gt;: UILabel = {
-        let label = UILabel()
-        label.textColor = &lt;#UIColor#&gt;
-        label.font = UIFont.systemFont(ofSize: &lt;#T##CGFloat#&gt;)
-        return label
-    }()</string>
+	<string>private var &lt;#label#&gt;: UILabel!</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>9EA57882-EB36-4B37-8CD9-4BB284229AC3</string>
 	<key>IDECodeSnippetLanguage</key>

@@ -12,12 +12,30 @@
 	<string>import RxSwift
 
 struct &lt;#ViewModel#&gt; {
-    let bag = DisposeBag()
-    let code = ""
-    var rx_data = Variable(&lt;#type#&gt;)
+let bag = DisposeBag()
+var code = ""
+var rx_data = Variable(&lt;#type#&gt;)
+
+func getData() {
+    // 是否mock 数据
+    #if true
+    mockData()
+    #else
+    requestData()
+    #endif
+}
 }
 
-extension &lt;#ViewModel#&gt; {}</string>
+extension &lt;#ViewModel#&gt; {
+//请求数据
+fileprivate func requestData() {
+    
+}
+//模拟数据
+fileprivate func mockData() {
+    
+}
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>B99ABE6A-9031-4CA2-88F5-3FA5971C3346</string>
 	<key>IDECodeSnippetLanguage</key>

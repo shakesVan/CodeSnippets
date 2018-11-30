@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_cell_class</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import UIKit
+import SnapKit
+
+class &lt;#UIView#&gt;: UITableViewCell {
+    // MARK: - Data
+    var data = &lt;#Data#&gt; {
+        didSet {
+            
+        }
+    }
+    
+    // MARK: - Subviews
+    private var bgView: UIView!
+    
+    // MARK: - LayoutUI
+    private func layoutUI() {
+        addSubview(bgView)
+        
+        bgView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    // MARK: - LifeCycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        initViews()
+        layoutUI()
+        bindRx()
+    }
+    
+    // MARK: - bindRx
+    private func bindRx() {
+        
+    }
+    
+    // MARK: - initViews
+    private func initViews() {
+        bgView = UIView()
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>19F2BEC6-8D50-44D6-A09F-7D5C8EF0E3A6</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建cell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
