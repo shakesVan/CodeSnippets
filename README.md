@@ -3,9 +3,9 @@
 ## Usage 使用方式
 ```
 git clone https://github.com/xiaoyao250/CodeSnippets.git
-cd CodeSnippets/
-./copy.sh
+open CodeSnippets/
 ```
+再复制到自己代码块的路径下
 
 ## tips
 
