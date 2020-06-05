@@ -3,48 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>q_viewmodel</string>
+	<string>p_nib_view</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>All</string>
 		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>import RxSwift
-import RxRelay
-
-struct &lt;#ViewModel#&gt; {
-let bag = DisposeBag()
-var code = ""
-var rx_data = BehabiorRelay(value: &lt;#type#&gt;)
-
-func getData() {
-    // 是否mock 数据
-    #if true
-    mockData()
-    #else
-    requestData()
-    #endif
-}
-}
-
-extension &lt;#ViewModel#&gt; {
-//请求数据
-fileprivate func requestData() {
-    
-}
-//模拟数据
-fileprivate func mockData() {
-    
-}
-}</string>
+	<string>@IBOutlet weak var &lt;#nameV#&gt;: UIView!</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>B99ABE6A-9031-4CA2-88F5-3FA5971C3346</string>
+	<string>E2584632-1B5D-4858-923F-90B8F871EB40</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>快速创建viewmodel</string>
+	<string>nib_view属性</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

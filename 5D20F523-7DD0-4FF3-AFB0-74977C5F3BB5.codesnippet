@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_colloct_layout</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let width = (screenWidth - 6) / 3
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 3
+        collectV.collectionViewLayout = layout</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5D20F523-7DD0-4FF3-AFB0-74977C5F3BB5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建flowlayout</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

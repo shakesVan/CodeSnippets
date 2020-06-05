@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_collectVC_VM_View</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+import Foundation
+import UIKit
+import RxSwift
+import HandyJSON
+import MJRefresh
+
+/// 输入协议
+protocol &lt;#Name#&gt;ListViewModelInputs {
+    /// 请求数据
+    /// - Parameter offset: 偏移量（页码）
+    func getData(_ offset: Int)
+    func touchAction(_ action: ActionModel)
+}
+
+/// 输出协议
+protocol &lt;#Name#&gt;ListViewModelOutputs {
+    
+    /// 数据序列
+    var dataObs: Observable&lt;ListLatestFeedsResponse?&gt;{ get }
+    /// 事件序列
+    var touchActionModel: Observable&lt;ActionModel&gt; { get }
+}
+
+/// VM协议
+protocol &lt;#Name#&gt;ListViewModelType {
+    var inputs: &lt;#Name#&gt;ListViewModelInputs { get }
+    var outputs: &lt;#Name#&gt;ListViewModelOutputs { get }
+}
+
+/// VM实现
+class &lt;#Name#&gt;ListViewModel: &lt;#Name#&gt;ListViewModelType,&lt;#Name#&gt;ListViewModelInputs, &lt;#Name#&gt;ListViewModelOutputs {
+    
+    init() {
+        let dataObs = dataRelay.flatMap { offset in
+            NetworkService.rx_request(.listLatestFeeds(offset, 30))
+                .map { BaseResponse&lt;ListLatestFeedsResponse&gt;.deserialize(from: $0)?.data }
+                .catchErrorJustReturn(nil)
+        }.share()
+        
+        self.dataObs = dataObs
+        
+        touchActionModel = touchRelay
+    }
+    
+    // MARK: - 输入协议
+    func getData(_ offset: Int) {
+        dataRelay.on(.next(offset))
+    }
+    
+    func touchAction(_ action: ActionModel) {
+        touchRelay.on(.next(action))
+    }
+    
+    // MARK: - 输出协议
+    /// 数据
+    let dataObs: Observable&lt;ListLatestFeedsResponse?&gt;
+    fileprivate let dataRelay = PublishSubject&lt;Int&gt;()
+    
+    /// 点击事件
+    let touchActionModel: Observable&lt;ActionModel&gt;
+    fileprivate let touchRelay = PublishSubject&lt;ActionModel&gt;()
+    
+    /// 实现VM协议
+    var inputs: &lt;#Name#&gt;ListViewModelInputs { return self }
+    var outputs: &lt;#Name#&gt;ListViewModelOutputs { return self }
+}
+
+
+class &lt;#Name#&gt;ListViewController: BaseViewController {
+    // MARK: - Data
+    fileprivate lazy var viewModel: &lt;#Name#&gt;ListViewModelType = &lt;#Name#&gt;ListViewModel()
+    let bag = DisposeBag()
+    // 偏移量
+    var offset = 0
+    // 是否有下一页
+    var hasNext = false
+    // 数据源
+    var dataSource = [PostModel]()
+    
+    // MARK: - Subviews
+    @IBOutlet weak var collectV: UICollectionView!
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        initViews()
+        bindRx()
+        getData()
+    }
+    
+    // MARK: - BindRx
+    private func bindRx() {
+        viewModel.outputs.dataObs.bind { [unowned self] res0 in
+            guard let res = res0 else { return }
+            // 是否有下一页
+            self.hasNext = res.hasNext
+            self.setFooter(res.hasNext, self.collectV)
+            // 处理分页数据
+            if self.offset == 0 {
+                self.dataSource = res.dataList
+                self.collectV.mj_header?.endRefreshing()
+            }else{
+                self.dataSource.append(contentsOf: res.dataList)
+            }
+            self.offset = res.nextOffset
+            self.collectV.reloadData()
+        }.disposed(by: bag)
+        
+    }
+    
+    // MARK: - initViews
+    private func initViews() {
+        title = ""
+        
+        let width = (screenWidth - 6) / 3
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 3
+        collectV.collectionViewLayout = layout
+        
+        
+        collectV.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {[unowned self] in
+            self.offset = 0
+            self.getData()
+        })
+        
+        collectV.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {[unowned self] in
+            self.setFooter(self.hasNext, self.collectV)
+            if self.hasNext {
+                self.getData()
+            }
+        })
+    }
+    
+    
+    // MARK: - Events
+    func getData() {
+        viewModel.inputs.getData(offset)
+    }
+    
+    func setFooter(_ hasNext: Bool, _ scrollV: UIScrollView) {
+        hasNext ? scrollV.mj_footer?.resetNoMoreData()
+            : scrollV.mj_footer?.endRefreshingWithNoMoreData()
+    }
+}
+
+// MARK: - DataSource &amp; Delegate
+extension &lt;#Name#&gt;ListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {
+        let item = dataSource[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &lt;#Name#&gt;ListCell.identifier, for: indexPath) as! &lt;#Name#&gt;ListCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = dataSource[indexPath.row]
+        print("didSelectItemAt = \(indexPath), item = \(item)")
+    }
+}
+
+// MARK: - cell
+class &lt;#Name#&gt;ListCell: UICollectionViewCell {
+    
+    @IBOutlet weak var bgImgV: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.masksToBounds = true
+        layer.cornerRadius = 3
+    }
+    
+    func setData(_ bgImgUrl: String) {
+//        bgImgV.setImage(bgImgUrl)
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7C10AB20-FED1-47CF-BE59-A5861686FB46</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快速创建collectVC_VM_View</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

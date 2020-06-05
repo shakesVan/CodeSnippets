@@ -3,48 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>q_viewmodel</string>
+	<string>q_cell_nib_class</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>TopLevel</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>import RxSwift
-import RxRelay
-
-struct &lt;#ViewModel#&gt; {
-let bag = DisposeBag()
-var code = ""
-var rx_data = BehabiorRelay(value: &lt;#type#&gt;)
-
-func getData() {
-    // 是否mock 数据
-    #if true
-    mockData()
-    #else
-    requestData()
-    #endif
-}
-}
-
-extension &lt;#ViewModel#&gt; {
-//请求数据
-fileprivate func requestData() {
+	<string>class &lt;#Cell#&gt;: UICollectionViewCell {
     
-}
-//模拟数据
-fileprivate func mockData() {
+    @IBOutlet weak var bgImgV: UIImageView!
+    @IBOutlet weak var nameL: UILabel!
     
-}
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.masksToBounds = true
+        layer.cornerRadius = 3
+        
+    }
+    
+    func setData(_ bgImgUrl: String) {
+        bgImgV.setImage(bgImgUrl)
+    }
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>B99ABE6A-9031-4CA2-88F5-3FA5971C3346</string>
+	<string>C7EA628A-939B-40D8-BDAD-8098E6A4A0BA</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>快速创建viewmodel</string>
+	<string>快速创建cell_nib_class</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

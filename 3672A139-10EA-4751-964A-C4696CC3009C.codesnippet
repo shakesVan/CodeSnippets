@@ -10,11 +10,13 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>import UIKit
+import RxSwift
 
-class &lt;#ViewController#&gt;: MQBaseViewController {
+class &lt;#ViewController#&gt;: BaseViewController {
     
     // MARK: - Data
     fileprivate lazy var viewModel = &lt;#ViewModel#&gt;()
+    let bag = DisposeBag()
     // MARK: - Subviews
     
 // MARK: - LifeCycle
@@ -22,13 +24,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
     
     initViews()
-    layoutUI()
     bindRx()
-}
-
-// MARK: - LayoutUI
-private func layoutUI() {
-    
 }
 
 // MARK: - BindRx
@@ -51,6 +47,8 @@ extension &lt;#ViewController#&gt; {}
 	<string>3672A139-10EA-4751-964A-C4696CC3009C</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
 	<string>快速创建ViewController</string>
 	<key>IDECodeSnippetUserSnippet</key>

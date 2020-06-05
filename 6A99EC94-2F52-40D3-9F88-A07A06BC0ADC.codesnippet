@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>q_vm_input_out</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import RxSwift
+import HandyJSON
+
+protocol &lt;#Name#&gt;ViewModelInputs {
+    func getData()
+    func touchAction(_ action: ActionModel)
+}
+
+protocol &lt;#Name#&gt;ViewModelOutputs {
+    //var dataObs: Observable&lt;&lt;#Name#&gt;Response?&gt;{ get }
+    var touchActionModel: Observable&lt;ActionModel&gt; { get }
+}
+
+protocol &lt;#Name#&gt;ViewModelType {
+    var inputs: &lt;#Name#&gt;ViewModelInputs { get }
+    var outputs: &lt;#Name#&gt;ViewModelOutputs { get }
+}
+
+class &lt;#Name#&gt;ViewModel: &lt;#Name#&gt;ViewModelType,&lt;#Name#&gt;ViewModelInputs, &lt;#Name#&gt;ViewModelOutputs {
+    
+    init() {
+        
+    //        dataObs = dataRelay.flatMap { id in
+    //            NetworkService.rx_request(.appraisalGetOrderReport(id))
+    //                .map { BaseResponse&lt;GetOrderReportResponse&gt;.deserialize(from: $0)?.data }
+    //                .catchErrorJustReturn(nil)
+    //        }.share()
+        
+        touchActionModel = touchRelay
+    }
+    
+    func getData(_ id: Int) {
+        dataRelay.on(.next(id))
+    }
+    
+    
+    func touchAction(_ action: ActionModel) {
+        touchRelay.on(.next(action))
+    }
+    
+    fileprivate let dataRelay = PublishSubject&lt;Int&gt;()
+    fileprivate let touchRelay = PublishSubject&lt;ActionModel&gt;()
+    //let dataObs: Observable&lt;&lt;#Name#&gt;Response?&gt;
+    let touchActionModel: Observable&lt;ActionModel&gt;
+    var inputs: &lt;#Name#&gt;ViewModelInputs { return self }
+    var outputs: &lt;#Name#&gt;ViewModelOutputs { return self }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6A99EC94-2F52-40D3-9F88-A07A06BC0ADC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>快速创建带input&amp;output的VM</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>q_vm_inout_put</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
